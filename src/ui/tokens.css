@@ -1,0 +1,48 @@
+:root {
+  /* Spacing */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+
+  /* Type sizes */
+  --t-xs: 12px;
+  --t-sm: 14px;
+  --t-md: 16px;
+  --t-lg: 20px;
+  --t-xl: 28px;
+  --t-2xl: 40px;
+
+  /* Radius */
+  --r-0: 0;
+  --r-1: 4px;
+
+  /* Borders */
+  --b-thin: 1px;
+  --b-thick: 2px;
+
+  /* Tap target */
+  --tap: 44px;
+
+  /* Fonts */
+  --font-sans: 'Archivo', system-ui, 'Noto Naskh Arabic', 'Noto Nastaliq Urdu', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Layout (Part 8.4) */
+  --header-h: 56px;
+  --tabbar-h: 56px;
+  --sidebar-w: 220px;
+  --content-max: 560px;
+
+  /* Domain colors (same in every theme) */
+  --domain-1: #C93C20;
+  --domain-2: #B8860B;
+  --domain-3: #4F7A3A;
+  --domain-4: #1F7A7A;
+  --domain-5: #2E5EAA;
+  --domain-6: #7A5230;
+  --domain-7: #4B5563;
+}

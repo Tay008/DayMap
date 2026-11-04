@@ -1,0 +1,50 @@
+.prayers {
+  display: flex;
+  overflow-x: auto;
+  border: var(--b-thin) solid var(--line-soft);
+  border-radius: var(--r-1);
+}
+
+.prayers__item {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-1);
+  padding: var(--s-2) var(--s-3);
+  border-right: var(--b-thin) solid var(--line-soft);
+}
+
+.prayers__item:last-child {
+  border-right: none;
+}
+
+.prayers__name {
+  color: var(--muted);
+  font-size: var(--t-xs);
+  text-transform: capitalize;
+}
+
+.prayers__time {
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+}
+
+.prayers__item--next {
+  background: var(--surface);
+}
+
+.prayers__item--next .prayers__name,
+.prayers__item--next .prayers__time,
+.prayers__count {
+  color: var(--accent);
+}
+
+.prayers__item--next .prayers__time {
+  font-weight: 600;
+}
+
+.prayers__count {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+}

@@ -1,0 +1,11 @@
+.now-tag {
+  padding: 0 var(--s-1);
+  border-radius: var(--r-1);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  line-height: 1.7;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}

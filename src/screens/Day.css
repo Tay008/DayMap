@@ -1,0 +1,27 @@
+.day {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.day__loading {
+  color: var(--muted);
+}
+
+.day__progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.day__progress-text {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+}
+
+.day__footer {
+  display: flex;
+  justify-content: flex-start;
+}

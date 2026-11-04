@@ -1,0 +1,55 @@
+.styleguide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-6);
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--s-4);
+}
+
+.styleguide__bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: var(--s-2);
+  padding: var(--s-3) 0;
+  background: var(--bg);
+  border-bottom: var(--b-thin) solid var(--line-soft);
+}
+
+.sg-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.sg-section__title {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.sg-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.sg-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.sg-urdu-title {
+  margin: 0;
+  font-size: var(--t-xl);
+  font-weight: 700;
+  line-height: 1.7;
+}

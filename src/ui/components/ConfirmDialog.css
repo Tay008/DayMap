@@ -1,0 +1,36 @@
+.confirm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s-4);
+  background: color-mix(in srgb, var(--ink) 45%, transparent);
+}
+
+.confirm {
+  width: 100%;
+  max-width: 400px;
+  padding: var(--s-5);
+  background: var(--surface);
+  border: var(--b-thick) solid var(--ink);
+  border-radius: var(--r-1);
+}
+
+.confirm__title {
+  margin: 0 0 var(--s-2);
+  font-size: var(--t-lg);
+  font-weight: 700;
+}
+
+.confirm__message {
+  margin: 0 0 var(--s-4);
+  color: var(--muted);
+}
+
+.confirm__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s-2);
+}

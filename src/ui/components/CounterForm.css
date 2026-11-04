@@ -1,0 +1,40 @@
+.counter-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.counter-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.counter-form__label {
+  font-size: var(--t-sm);
+  font-weight: 600;
+}
+
+.counter-form__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.counter-form__note {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--t-xs);
+}
+
+.counter-form__error {
+  margin: 0;
+  color: var(--danger);
+  font-size: var(--t-xs);
+}
+
+.counter-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s-2);
+}

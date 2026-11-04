@@ -1,0 +1,74 @@
+.task-row {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  width: 100%;
+  min-height: var(--tap);
+  padding: var(--s-2) var(--s-3);
+  border: none;
+  border-bottom: var(--b-thin) solid var(--line-soft);
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.task-row:last-child {
+  border-bottom: none;
+}
+
+.task-row--draggable {
+  touch-action: manipulation;
+  cursor: grab;
+}
+
+.task-row--dragging {
+  cursor: grabbing;
+  opacity: 0.7;
+}
+
+.task-row__bar {
+  flex-shrink: 0;
+  align-self: stretch;
+  border-radius: var(--r-1);
+}
+
+.task-row__bar--1 {
+  width: 8px;
+}
+
+.task-row__bar--2 {
+  width: 5px;
+}
+
+.task-row__bar--3 {
+  width: 3px;
+}
+
+.task-row__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--s-1);
+  min-width: 0;
+}
+
+.task-row__title {
+  display: -webkit-box;
+  overflow: hidden;
+  font-weight: 600;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.task-row__title--done {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.task-row__meta {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+}

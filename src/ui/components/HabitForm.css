@@ -1,0 +1,45 @@
+.habit-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.habit-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.habit-form__label {
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.habit-form__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.habit-form__target {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--s-2);
+}
+
+.habit-form__target .field {
+  flex: 1;
+}
+
+.habit-form__error {
+  margin: 0;
+  color: var(--danger);
+  font-size: var(--t-xs);
+}
+
+.habit-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s-2);
+}

@@ -1,0 +1,20 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: var(--tap);
+  padding: 0 var(--s-3);
+  border: var(--b-thin) solid var(--ink);
+  border-radius: var(--r-1);
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: var(--t-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chip--selected {
+  background: var(--ink);
+  color: var(--surface);
+}

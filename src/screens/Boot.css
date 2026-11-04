@@ -1,0 +1,4 @@
+.boot {
+  min-height: 100svh;
+  background: var(--bg);
+}

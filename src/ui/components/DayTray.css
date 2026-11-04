@@ -1,0 +1,38 @@
+.day-tray {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.day-tray__title {
+  font-size: var(--t-sm);
+}
+
+.day-tray__list {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: var(--b-thin) solid var(--line-soft);
+  border-radius: var(--r-1);
+}
+
+.day-tray__row {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding-right: var(--s-2);
+  border-bottom: var(--b-thin) solid var(--line-soft);
+}
+
+.day-tray__row:last-child {
+  border-bottom: none;
+}
+
+.day-tray__row .task-row {
+  flex: 1;
+  border-bottom: none;
+}
+
+.day-tray--over .day-tray__list {
+  border-color: var(--accent);
+}

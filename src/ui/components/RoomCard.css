@@ -1,0 +1,72 @@
+.room {
+  border: var(--b-thick) solid var(--ink);
+  border-radius: var(--r-0);
+  background: var(--surface);
+}
+
+.room--now {
+  border-color: var(--accent);
+}
+
+.room--over {
+  border-color: var(--accent);
+  background: var(--bg);
+}
+
+.room--sealed {
+  border-color: var(--line-soft);
+  color: var(--muted);
+  background: repeating-linear-gradient(
+    45deg,
+    var(--line-soft) 0 1px,
+    transparent 1px 8px
+  );
+}
+
+.room__header {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  border-bottom: var(--b-thin) solid var(--line-soft);
+}
+
+.room__name {
+  flex: 1;
+  min-width: 0;
+  font-weight: 700;
+}
+
+.room__time {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  white-space: nowrap;
+}
+
+.room__sealed {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--s-2) var(--s-3);
+}
+
+.room__add {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: var(--tap);
+  padding: 0 var(--s-3);
+  border: none;
+  border-top: var(--b-thin) dashed var(--line-soft);
+  background: transparent;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: var(--t-sm);
+  text-align: left;
+  cursor: pointer;
+}
+
+.room__add:disabled {
+  opacity: 0.6;
+  cursor: default;
+}

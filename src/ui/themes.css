@@ -1,0 +1,39 @@
+:root,
+html[data-theme='paper'] {
+  color-scheme: light;
+  --bg: #F4EFE6;
+  --surface: #FBF8F2;
+  --ink: #15130F;
+  --muted: #6B6558;
+  --line-soft: #D8D0C0;
+  --accent: #C93C20;
+  --accent-ink: #FFFFFF;
+  --ok: #2F7D4F;
+  --danger: #B3261E;
+}
+
+html[data-theme='ink'] {
+  color-scheme: dark;
+  --bg: #12110F;
+  --surface: #1C1B18;
+  --ink: #F2EDE3;
+  --muted: #A39D8F;
+  --line-soft: #3A3731;
+  --accent: #FF6A45;
+  --accent-ink: #12110F;
+  --ok: #6FCF97;
+  --danger: #FF6B5E;
+}
+
+html[data-theme='moss'] {
+  color-scheme: light;
+  --bg: #E9EDE3;
+  --surface: #F5F7F0;
+  --ink: #14201A;
+  --muted: #5A675F;
+  --line-soft: #C9D2C3;
+  --accent: #1F6B4A;
+  --accent-ink: #FFFFFF;
+  --ok: #3C7A2A;
+  --danger: #B3261E;
+}

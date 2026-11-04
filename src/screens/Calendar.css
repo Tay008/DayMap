@@ -1,0 +1,109 @@
+.calendar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.calendar__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+}
+
+.calendar__month {
+  font-size: var(--t-lg);
+}
+
+.calendar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.calendar__nav {
+  padding: 0 var(--s-2);
+}
+
+.calendar__grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  border-top: var(--b-thin) solid var(--line-soft);
+  border-left: var(--b-thin) solid var(--line-soft);
+}
+
+.calendar__weekday {
+  padding: var(--s-1) 0;
+  border-right: var(--b-thin) solid var(--line-soft);
+  border-bottom: var(--b-thin) solid var(--line-soft);
+  background: var(--bg);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.calendar__cell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  min-height: var(--s-7);
+  padding: var(--s-1);
+  border: none;
+  border-right: var(--b-thin) solid var(--line-soft);
+  border-bottom: var(--b-thin) solid var(--line-soft);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.calendar__cell:disabled {
+  cursor: default;
+}
+
+.calendar__cell--empty {
+  background: transparent;
+  cursor: default;
+}
+
+.calendar__cell--today {
+  outline: var(--b-thick) solid var(--ink);
+  outline-offset: calc(-1 * var(--b-thick));
+}
+
+.calendar__day-num {
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+}
+
+.calendar__holiday {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: var(--t-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.calendar__foot {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+  margin-top: auto;
+}
+
+.calendar__override {
+  width: var(--s-2);
+  height: var(--s-2);
+  background: var(--accent);
+}
+
+.calendar__count {
+  margin-left: auto;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+}

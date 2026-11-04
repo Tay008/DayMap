@@ -1,0 +1,6 @@
+.room-door {
+  width: var(--b-thick);
+  height: var(--s-4);
+  margin: 0 auto;
+  background: var(--ink);
+}

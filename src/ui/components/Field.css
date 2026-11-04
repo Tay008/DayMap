@@ -1,0 +1,38 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.field__label {
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.field__control {
+  width: 100%;
+  min-height: var(--tap);
+  padding: var(--s-2) var(--s-3);
+  border: var(--b-thick) solid var(--ink);
+  border-radius: var(--r-1);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: var(--t-md);
+}
+
+select.field__control {
+  cursor: pointer;
+}
+
+textarea.field__control {
+  min-height: calc(var(--tap) * 2);
+  resize: vertical;
+}
+
+.field__error {
+  margin: 0;
+  color: var(--danger);
+  font-size: var(--t-xs);
+}

@@ -1,0 +1,29 @@
+.sync {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-1) var(--s-3);
+  border: var(--b-thin) solid var(--line-soft);
+  border-radius: var(--r-1);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sync::before {
+  content: '';
+  width: var(--s-2);
+  height: var(--s-2);
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.sync--synced::before {
+  background: var(--ok);
+}
+
+.sync--syncing::before {
+  background: var(--accent);
+}

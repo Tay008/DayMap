@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Shell(command -v google-chrome google-chrome-stable chromium chromium-browser brave-browser 2>/dev/null; ls -d ~/.agent-browser/browsers/* 2>/dev/null; echo \"--- agent-browser ---\"; agent-browser --version 2>&1 | head -2; echo \"--- firebase cli ---\"; command -v firebase && firebase --version 2>&1 | head -2; echo \"--- logged in? ---\"; command -v firebase >/dev/null && firebase login:list 2>&1 | head -5)",
+      "mcp__firebase__firebase_get_environment",
+      "mcp__firebase__firebase_list_projects",
+      "Shell(ls -la ~/.config/configstore/firebase-tools.json 2>/dev/null && echo \"firebase config exists\" || echo \"no firebase configstore\"; ls -la ~/.config/firebase 2>/dev/null; ls -la ~/.cache/firebase 2>/dev/null | head)",
+      "Shell(git:*)",
+      "Shell(gh:*)"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  }
+}

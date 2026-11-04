@@ -1,0 +1,26 @@
+.ring__track {
+  stroke: var(--line-soft);
+}
+
+.ring__fill {
+  stroke: var(--accent);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 300ms ease-out;
+}
+
+.ring--done .ring__track {
+  stroke: var(--accent);
+  fill: var(--accent);
+}
+
+.ring__check {
+  stroke: var(--accent-ink);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring__fill {
+    transition: none;
+  }
+}

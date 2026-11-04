@@ -1,0 +1,41 @@
+.day-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+}
+
+.day-header__main {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+}
+
+.day-header__date {
+  font-size: var(--t-lg);
+}
+
+.day-header__today {
+  padding: 0 var(--s-1);
+  border-radius: var(--r-1);
+  background: var(--ink);
+  color: var(--surface);
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  line-height: 1.7;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.day-header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+}
+
+.day-header__btn {
+  padding: 0 var(--s-2);
+}

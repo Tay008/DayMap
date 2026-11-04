@@ -1,0 +1,39 @@
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--s-1));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toast-host {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--tabbar-h) + var(--s-4));
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-2);
+  pointer-events: none;
+}
+
+.toast {
+  max-width: 90vw;
+  padding: var(--s-3) var(--s-4);
+  background: var(--ink);
+  color: var(--surface);
+  border-radius: var(--r-1);
+  font-size: var(--t-sm);
+  animation: toast-in 150ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    animation: none;
+  }
+}

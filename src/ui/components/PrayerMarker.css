@@ -1,0 +1,17 @@
+.prayer-marker {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin: var(--s-2) 0;
+}
+
+.prayer-marker__line {
+  flex: 1;
+  border-top: var(--b-thin) dashed var(--line-soft);
+}
+
+.prayer-marker__label {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+}
