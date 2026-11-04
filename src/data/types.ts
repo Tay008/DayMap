@@ -67,10 +67,15 @@ export interface Settings {
   urgePlan: string[];
 }
 
+export type HolidayKind = 'public' | 'religious' | 'optional' | 'personal';
+
 export interface Holiday {
   id: string;
   dateKey: DateKey;
   name: string;
+  kind?: HolidayKind;
+  endDateKey?: DateKey;
+  tentative?: boolean;
 }
 
 export interface DayOverride {

@@ -2,47 +2,50 @@ import { NavLink } from 'react-router-dom';
 import { signOut } from '../data/auth';
 import { useAuth } from '../hooks/useAuth';
 import { useDomains } from '../hooks/useDomains';
-import Button from '../ui/components/Button';
-import './More.css';
+import '../styles/dm-more.css';
 
-const LINKS = [
-  { to: '/more/settings', label: 'Settings' },
-  { to: '/more/habits', label: 'Habits' },
-  { to: '/more/domains', label: 'Domains' },
-  { to: '/more/holidays', label: 'Holidays' },
-  { to: '/more/streak', label: 'Streak' },
-  { to: '/more/backup', label: 'Backup' },
+const COLORS = ['dm-c-sky', 'dm-c-peach', 'dm-c-mint', 'dm-c-rose', 'dm-c-amber', 'dm-c-lilac'];
+
+const ITEMS = [
+  { to: '/more/settings', label: 'Settings', desc: 'Theme, prayer offsets and azan' },
+  { to: '/more/habits', label: 'Habits', desc: 'Daily goals and schedules' },
+  { to: '/more/domains', label: 'Domains', desc: 'Categories and colors' },
+  { to: '/more/holidays', label: 'Holidays', desc: 'College days off' },
+  { to: '/more/streak', label: 'Streak', desc: 'Counter, urges and history' },
+  { to: '/more/backup', label: 'Backup', desc: 'Export and import data' },
 ];
 
-// Temporary (Step 4): the domain names read from Firestore stay visible until the real
-// Domains screen exists, so sync can still be checked at a glance.
+function domainColor(index: number): string {
+  const colors = ['#FFB08A', '#8FD3C1', '#FF8FA3', '#C9CBF5', '#FFC83D', '#DDE2EE'];
+  return colors[index % 6];
+}
+
 export default function More() {
   const { user } = useAuth();
   const domains = useDomains(user?.uid ?? null);
 
   return (
-    <div>
-      <nav className="more__links">
-        {LINKS.map((link) => (
-          <NavLink key={link.to} to={link.to} className="more__link">
-            {link.label}
+    <div className="dm-page">
+      <div className="dm-grid">
+        {ITEMS.map((item, idx) => (
+          <NavLink key={item.to} to={item.to} className={`dm-menu ${COLORS[idx % COLORS.length]}`}>
+            <b>{item.label}</b>
+            <span>{item.desc}</span>
           </NavLink>
         ))}
-      </nav>
-
-      <div className="more__top">
-        <p className="more__count">Domains ({domains.length})</p>
-        <Button variant="secondary" onClick={() => void signOut()}>
-          Sign out
-        </Button>
       </div>
-      <ul className="more__list">
-        {domains.map((domain) => (
-          <li key={domain.id} className="more__item">
+      <button className="dm-btn" onClick={() => void signOut()} type="button">
+        Sign out
+      </button>
+      <h2 className="dm-rt">Your domains</h2>
+      <div className="dm-chips">
+        {domains.map((domain, idx) => (
+          <span key={domain.id} className="dm-chip">
+            <i style={{ background: domainColor(idx) }}></i>
             {domain.name}
-          </li>
+          </span>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,3 @@
-import './SyncChip.css'
-
 export type SyncState = 'offline' | 'syncing' | 'synced'
 
 const LABELS: Record<SyncState, string> = {
@@ -9,5 +7,11 @@ const LABELS: Record<SyncState, string> = {
 }
 
 export default function SyncChip({ state }: { state: SyncState }) {
-  return <span className={`sync sync--${state}`}>{LABELS[state]}</span>
+  const cls = state === 'syncing' ? ' dm-syncing' : state === 'offline' ? ' dm-offline' : ''
+  return (
+    <span className={`dm-sync${cls}`}>
+      <i></i>
+      {LABELS[state]}
+    </span>
+  )
 }

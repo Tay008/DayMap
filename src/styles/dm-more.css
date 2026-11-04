@@ -1,0 +1,5 @@
+.dm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.dm-menu{display:flex;flex-direction:column;gap:4px;padding:18px 22px;border:2px solid #15162E;box-shadow:4px 4px 0 #15162E;color:#15162E;text-decoration:none}
+.dm-menu b{font:800 22px 'Bricolage Grotesque',sans-serif}
+.dm-menu span{font-weight:600;color:#4A4C6A}
+@media (max-width:900px){.dm-grid{grid-template-columns:1fr}}

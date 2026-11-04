@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import SyncChip from './SyncChip'
 import type { SyncState } from './SyncChip'
 import { iconFor, iconProps } from '../icons'
-import './AppLayout.css'
+import '../../styles/dm-shell.css'
 
 interface TabDef {
   to: string
@@ -27,53 +27,31 @@ interface AppLayoutProps {
 
 export default function AppLayout({ title, sync = 'synced', children }: AppLayoutProps) {
   return (
-    <div className="app">
-      <aside className="app__sidebar">
-        <div className="app__brand">DayMap</div>
-        <nav className="app__sidebar-nav">
-          {TABS.map((tab) => {
-            const Icon = iconFor(tab.icon)
-            return (
-              <NavLink
-                key={tab.to}
-                to={tab.to}
-                end={tab.end}
-                className={({ isActive }) =>
-                  `app__navlink${isActive ? ' app__navlink--active' : ''}`
-                }
-              >
-                <Icon {...iconProps} />
-                <span>{tab.label}</span>
-              </NavLink>
-            )
-          })}
-        </nav>
-      </aside>
+    <div className="dm-app">
+      <nav className="dm-sb">
+        <div className="dm-logo"><i></i>DayMap</div>
+        {TABS.map((tab) => {
+          const Icon = iconFor(tab.icon)
+          return (
+            <NavLink
+              key={tab.to}
+              to={tab.to}
+              end={tab.end}
+              className={({ isActive }) => `dm-nav${isActive ? ' dm-on' : ''}`}
+            >
+              <Icon {...iconProps} />
+              <span>{tab.label}</span>
+            </NavLink>
+          )
+        })}
+      </nav>
 
-      <div className="app__main">
-        <header className="app__header">
-          <h1 className="app__title" dir="auto">
-            {title}
-          </h1>
+      <div className="dm-shell">
+        <header className="dm-tb">
+          <h1 dir="auto">{title}</h1>
           <SyncChip state={sync} />
         </header>
-        <main className="app__content">{children}</main>
-        <nav className="app__tabbar">
-          {TABS.map((tab) => {
-            const Icon = iconFor(tab.icon)
-            return (
-              <NavLink
-                key={tab.to}
-                to={tab.to}
-                end={tab.end}
-                className={({ isActive }) => `app__tab${isActive ? ' app__tab--active' : ''}`}
-              >
-                <Icon {...iconProps} />
-                <span>{tab.label}</span>
-              </NavLink>
-            )
-          })}
-        </nav>
+        {children}
       </div>
     </div>
   )

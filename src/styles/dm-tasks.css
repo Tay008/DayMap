@@ -1,0 +1,11 @@
+.dm-tk-hd{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dm-list{display:flex;flex-direction:column;gap:12px}
+.dm-item{display:flex;align-items:center;gap:16px;background:#fff;border:2px solid #15162E;padding:0 18px 0 0;min-height:68px;cursor:pointer}
+.dm-item>i{align-self:stretch;width:10px;border-right:2px solid #15162E}
+.dm-grow{flex:1;padding:12px 0}
+.dm-item b{font:800 20px 'Bricolage Grotesque',sans-serif}
+.dm-item small{display:block;font-weight:600;font-size:14px;color:#4A4C6A}
+.dm-check{width:32px;height:32px;padding:0;border:2px solid #15162E;background:#fff;color:#fff;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.dm-check.dm-on{background:#15162E}
+.dm-empty{padding:32px;border:2px dashed #15162E;background:#fff;text-align:center}
+@media (max-width:900px){.dm-seg{display:grid;grid-auto-columns:1fr;width:100%}.dm-tk-hd{flex-direction:column;align-items:stretch}.dm-tk-hd .dm-primary{position:fixed;right:16px;bottom:calc(76px + env(safe-area-inset-bottom));z-index:9}}

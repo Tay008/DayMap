@@ -7,13 +7,10 @@ import { useToday } from '../hooks/useToday';
 import { useDomains } from '../hooks/useDomains';
 import { useOpenOneOffs } from '../hooks/useOpenOneOffs';
 import { useRecentDone } from '../hooks/useRecentDone';
-import Button from '../ui/components/Button';
-import Chip from '../ui/components/Chip';
 import Sheet from '../ui/components/Sheet';
 import TaskForm from '../ui/components/TaskForm';
-import TaskRow from '../ui/components/TaskRow';
 import TaskSheet from '../ui/components/TaskSheet';
-import './Tasks.css';
+import '../styles/dm-tasks.css';
 
 type Tab = 'open' | 'backlog' | 'done';
 
@@ -22,6 +19,27 @@ const PRIORITIES: { value: Priority; label: string }[] = [
   { value: 2, label: 'Medium' },
   { value: 3, label: 'Low' },
 ];
+
+function domainColor(index: number): string {
+  const colors = ['#FFB08A', '#8FD3C1', '#FF8FA3', '#C9CBF5', '#FFC83D', '#DDE2EE'];
+  return colors[index % 6];
+}
+
+function IconPlus() {
+  return (
+    <svg className="dm-i" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 5v14M5 12h14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function IconCheck() {
+  return (
+    <svg className="dm-i" viewBox="0 0 24 24" aria-hidden="true" style={{ width: 16, height: 16 }}>
+      <path d="M5 13l4 4L19 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
 export default function Tasks() {
   const { user } = useAuth();
@@ -75,67 +93,90 @@ export default function Tasks() {
   }
 
   return (
-    <div>
-      <div className="tasks__top">
-        <Button onClick={openNew}>Add task</Button>
+    <div className="dm-page">
+      <div className="dm-tk-hd">
+        <div className="dm-seg">
+          <button className={tab === 'open' ? 'dm-on' : ''} onClick={() => setTab('open')} type="button">
+            Open ({openList.length})
+          </button>
+          <button className={tab === 'backlog' ? 'dm-on' : ''} onClick={() => setTab('backlog')} type="button">
+            Backlog ({backlogList.length})
+          </button>
+          <button className={tab === 'done' ? 'dm-on' : ''} onClick={() => setTab('done')} type="button">
+            Done ({doneList.length})
+          </button>
+        </div>
+        <button className="dm-primary" onClick={openNew} type="button">
+          <IconPlus /> Add task
+        </button>
       </div>
-
-      <div className="tasks__tabs" role="tablist">
-        <Chip selected={tab === 'open'} onClick={() => setTab('open')}>
-          Open ({openList.length})
-        </Chip>
-        <Chip selected={tab === 'backlog'} onClick={() => setTab('backlog')}>
-          Backlog ({backlogList.length})
-        </Chip>
-        <Chip selected={tab === 'done'} onClick={() => setTab('done')}>
-          Done ({doneList.length})
-        </Chip>
-      </div>
-
-      <div className="tasks__filters">
-        <Chip selected={domainFilter === null} onClick={() => setDomainFilter(null)}>
-          All domains
-        </Chip>
-        {domains.map((domain) => (
-          <Chip
+      <div className="dm-chips">
+        <span className="dm-label">Domain</span>
+        <button className={`dm-chip${domainFilter === null ? ' dm-on' : ''}`} onClick={() => setDomainFilter(null)} type="button">
+          All
+        </button>
+        {domains.map((domain, idx) => (
+          <button
             key={domain.id}
-            selected={domainFilter === domain.id}
+            className={`dm-chip${domainFilter === domain.id ? ' dm-on' : ''}`}
             onClick={() => setDomainFilter(domain.id)}
+            type="button"
           >
+            <i style={{ background: domainColor(idx) }}></i>
             {domain.name}
-          </Chip>
+          </button>
         ))}
+      </div>
+      <div className="dm-chips">
+        <span className="dm-label">Priority</span>
         {PRIORITIES.map((entry) => (
-          <Chip
+          <button
             key={entry.value}
-            selected={priorityFilter === entry.value}
-            onClick={() =>
-              setPriorityFilter(priorityFilter === entry.value ? null : entry.value)
-            }
+            className={`dm-chip${priorityFilter === entry.value ? ' dm-on' : ''}`}
+            onClick={() => setPriorityFilter(priorityFilter === entry.value ? null : entry.value)}
+            type="button"
           >
             {entry.label}
-          </Chip>
+          </button>
         ))}
       </div>
-
       {shown.length === 0 ? (
-        <div className="tasks__empty">
-          <p>Nothing here yet.</p>
-          <Button variant="secondary" onClick={openNew}>
-            Add task
-          </Button>
+        <div className="dm-empty">
+          <b className="dm-rt">Nothing here yet</b>
+          <p className="dm-sub">Add a task, or check another tab.</p>
         </div>
       ) : (
-        <div className="tasks__list">
-          {shown.map((entry) => (
-            <TaskRow
-              key={entry.task.id}
-              task={entry.task}
-              domain={domainOf(entry.task)}
-              ageDays={entry.ageDays}
-              onOpen={() => setSelectedId(entry.task.id)}
-            />
-          ))}
+        <div className="dm-list">
+          {shown.map((entry) => {
+            const task = entry.task;
+            const dom = domainOf(task);
+            const domIdx = domains.findIndex((d) => d.id === dom?.id);
+            const color = domIdx >= 0 ? domainColor(domIdx) : '#DDE2EE';
+            const left = (task.target ?? 0) - (task.progress ?? 0);
+            const meta = dom ? `${dom.name}, ${left > 0 ? `${left} left` : 'done'}` : left > 0 ? `${left} left` : 'done';
+            const done = task.doneAt !== null || (task.progress ?? 0) >= (task.target ?? 0);
+            return (
+              <div
+                key={task.id}
+                className="dm-item"
+                onClick={() => setSelectedId(task.id)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') setSelectedId(task.id);
+                }}
+              >
+                <i style={{ background: color }}></i>
+                <div className="dm-grow">
+                  <b>{task.title}</b>
+                  <small>{meta}</small>
+                </div>
+                <button className={`dm-check${done ? ' dm-on' : ''}`} aria-label="Mark done" type="button">
+                  {done ? <IconCheck /> : null}
+                </button>
+              </div>
+            );
+          })}
         </div>
       )}
 

@@ -1,0 +1,32 @@
+.dm-i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;flex:none}
+.dm-btn{height:44px;padding:0 18px;border:2px solid #15162E;background:#fff;color:#15162E;font:600 16px 'Instrument Sans',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.dm-sq{width:44px;padding:0}
+.dm-ink{background:#15162E;color:#fff}
+.dm-card{background:#fff;border:2px solid #15162E;box-shadow:6px 6px 0 #15162E}
+.dm-pill{display:inline-block;padding:2px 12px;border-radius:999px;background:#15162E;color:#fff;font-weight:600;font-size:14px}
+.dm-rt{font:800 24px 'Bricolage Grotesque',sans-serif;margin:0}
+.dm-sub{margin:0;font-weight:600;font-size:18px}
+.dm-bar{height:20px;border:2px solid #15162E;background:#fff}
+.dm-bar>i{display:block;height:100%;background:#15162E}
+.dm-ctl{display:flex;gap:12px;align-items:center}
+.dm-dawn{background:#FFB08A}
+.dm-day{background:#8FD3C1}
+.dm-fx{background:#DDE2EE}
+.dm-page{padding:32px 40px;display:flex;flex-direction:column;gap:24px;max-width:1280px;width:100%;box-sizing:border-box}
+.dm-primary{height:44px;padding:0 20px;background:#FFC83D;border:2px solid #15162E;box-shadow:4px 4px 0 #15162E;color:#15162E;font:600 16px 'Instrument Sans',sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.dm-primary:active{box-shadow:none;transform:translate(4px,4px)}
+.dm-seg{display:inline-grid;grid-auto-flow:column;border:2px solid #15162E;background:#fff}
+.dm-seg button{height:44px;padding:0 20px;border:0;border-right:2px solid #15162E;background:#fff;color:#15162E;font:600 16px 'Instrument Sans',sans-serif;cursor:pointer}
+.dm-seg button:last-child{border-right:0}
+.dm-seg button.dm-on{background:#15162E;color:#fff}
+.dm-chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.dm-chip{height:36px;padding:0 14px;border:2px solid #15162E;background:#fff;color:#15162E;font:600 14px 'Instrument Sans',sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.dm-chip i{width:12px;height:12px;border:2px solid #15162E;background:#DDE2EE}
+.dm-chip.dm-on{background:#15162E;color:#fff}
+.dm-label{font-weight:600;font-size:14px;color:#4A4C6A}
+.dm-c-sky{background:#DDE2EE}
+.dm-c-peach{background:#FFB08A}
+.dm-c-mint{background:#8FD3C1}
+.dm-c-rose{background:#FF8FA3}
+.dm-c-amber{background:#FFC83D}
+.dm-c-lilac{background:#C9CBF5}
